@@ -1,0 +1,8 @@
+elpa/
+straight/
+custom.el
+
+.lsp/
+.cache/
+auto-save-list/
+backups/
