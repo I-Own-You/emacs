@@ -1,0 +1,13 @@
+(defun copy-whole-line ()
+  (interactive)
+  (save-excursion
+    (kill-new (buffer-substring-no-properties 
+               (line-beginning-position) 
+               (line-end-position))))
+  (message "selection complete!"))
+(defvar my-custom-map (make-sparse-keymap) "my personal keymap")
+(define-key global-map (kbd "C-c") my-custom-map)
+
+(define-key my-custom-map (kbd "l") 'copy-whole-line)
+
+(provide 'my-maps)

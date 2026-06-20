@@ -1,0 +1,54 @@
+;; save most used results in vertico
+(use-package savehist
+  :init
+  (savehist-mode 1))
+
+;; search files by words in different orders (like fuzzy but whole words)
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (orderless-matching-styles '(orderless-literal orderless-regexp orderless-flex))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+;; visual enhancement for standard display
+(use-package vertico
+  :init
+  (vertico-mode 1)
+  :config
+  (define-key vertico-map (kbd "C-n") 'vertico-next)
+  (define-key vertico-map (kbd "C-p") 'vertico-previous))
+
+;; eye candy for vertico
+(use-package marginalia
+  :init
+  (marginalia-mode 1))
+
+;; icons everywhere
+(use-package nerd-icons-completion
+  :ensure t
+  :after marginalia
+  :config
+  (nerd-icons-completion-mode 1)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+
+;; display content of search results everywhere (like search, buffers, .etc
+(use-package consult
+  :ensure t
+  :bind (("C-s" . consult-line)
+         ("C-x b" . consult-buffer)))
+
+(use-package shrink-path
+  :ensure t)
+
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode 1)
+  :custom
+  (doom-modeline-height 25)
+  (doom-modeline-bar-width 4)
+  (doom-modeline-icon t)
+  (doom-modeline-major-mode-icon t))
+
+(provide 'packages)

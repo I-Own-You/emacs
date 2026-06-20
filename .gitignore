@@ -1,6 +1,8 @@
 elpa/
+eln-cache/
 straight/
 custom.el
+history
 
 .lsp/
 .cache/
