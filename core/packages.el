@@ -38,7 +38,7 @@
   :bind (("C-s" . consult-line)
          ("C-x b" . consult-buffer)
          ("C-c p f" . consult-find)
-         ("C-c p g" . consult-ripgrep)
+         ("C-c p g" . consult-ripgrep)))
 	 	 
 (use-package shrink-path
   :ensure t)
