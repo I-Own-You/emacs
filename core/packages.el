@@ -39,7 +39,7 @@
          ("C-x b" . consult-buffer)
          ("C-c p f" . consult-find)
          ("C-c p g" . consult-ripgrep)))
-	 	 
+
 (use-package shrink-path
   :ensure t)
 
@@ -53,5 +53,30 @@
   (doom-modeline-icon t)
   (doom-modeline-font-family "Nerd Font")
   (doom-modeline-major-mode-icon t))
+
+(use-package magit
+  :ensure t)
+;;:bind ("C-x g" . magit-status))
+
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 1)
+  (corfu-quit-no-match 'separator)
+  (corfu-popupinfo-delay 0.2) 
+  (corfu-popupinfo-max-height 20)
+  (corfu-popupinfo-max-width 80)
+  :config
+  (corfu-popupinfo-mode 1))
+
+(use-package which-key
+  :ensure t                       
+  :init
+  (setq which-key-idle-delay 0.4) 
+  :config
+  (which-key-mode 1))
 
 (provide 'packages)
